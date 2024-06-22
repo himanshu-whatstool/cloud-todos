@@ -10,10 +10,10 @@ export const Todolist = () => {
 }
 
 export const TodoApi = () => {
+
   const [todo, setTodo] = useState([])
   const [product, setProduct] = useState([])
   const [loading, setLoading] = useState(true)
-  const [id, setId] = useState(1)
 
 
   const fetchApi = async () => {
@@ -24,6 +24,8 @@ export const TodoApi = () => {
       const result = await response.json()
       // console.log("todo", result);
       setTodo(result.todos)
+      todo = result.todos
+      
       setLoading(false);
     } catch (error) {
       console.log("Api isn't responded");
@@ -33,7 +35,7 @@ export const TodoApi = () => {
   }
 
   const fetchProduct = async () => {
-    const productApi = `https://fakestoreapi.com/products/${id}`
+    const productApi = `https://fakestoreapi.com/products`
     try {
       const responsepro = await fetch(productApi)
       const resultpro = await responsepro.json()
@@ -43,17 +45,8 @@ export const TodoApi = () => {
     }
   }
 
-  useEffect(() => { fetchApi(), fetchProduct() }, [id])
+  useEffect(() => { fetchApi(), fetchProduct() }, [])
 
-  const prevclick = () => {
-    id--;
-    fetchProduct(id)
-  }
-
-  function nextclick() {
-    id++;
-    fetchProduct(id)
-  }
   return (
     <section className="container mt-4">
       <table className="table" style={{ fontSize: '14px' }}>
@@ -95,9 +88,7 @@ export const TodoApi = () => {
                       <p>{prodata.rating.rate}</p>
                       <p>{prodata.rating.count}</p>
                     </div>
-                    {/* <Link to={`/about/${prodata.id}`}>Next</Link> */}
-                    <button onClick={prevclick} class="btn btn-sm border border-black"><i class="bi bi-arrow-left-circle"></i></button>
-                    <button onClick={nextclick} className="btn btn-sm border border-black"><i className="bi bi-arrow-right-circle"></i></button>
+                    <button className="btn btn-sm border border-black"><i className="bi bi-arrow-left-circle"></i></button>
                   </div>
                 </div>
               </div>
