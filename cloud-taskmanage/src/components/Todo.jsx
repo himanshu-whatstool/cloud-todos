@@ -24,8 +24,6 @@ export const TodoApi = () => {
       const result = await response.json()
       // console.log("todo", result);
       setTodo(result.todos)
-      todo = result.todos
-      
       setLoading(false);
     } catch (error) {
       console.log("Api isn't responded");
@@ -70,14 +68,12 @@ export const TodoApi = () => {
               })
           }
         </tbody>
-      </table >
+      </table>
       <div className="row">
         {
           product?.map((prodata) => {
             return (
-
               <div className="col-12 col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12" key={prodata.id} >
-
                 <div className="card mt-4" style={{ width: '20rem', alignItems: 'center', height: 'auto' }} >
                   < img src={prodata.image} style={{ height: '180px' }} className="img-fluid" />
                   <div className="card-body">
