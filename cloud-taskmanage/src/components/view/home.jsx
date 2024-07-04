@@ -165,30 +165,37 @@ export const Zengoh = () => {
         </div>
         <div className="col-4"></div>
       </div>
-
     </section >
   )
 }
 
 export const SearchQuery = () => {
 
+  // const [item, setItem] = useState('one')
+  // const handleItem = () => {
+  //   setItem(item === 'one' ? item : one)
+  // }
+
+  const [activebox, setActiveBox] = useState("one")
+
+  const handleActibeBox = (boxId) => {
+    setActiveBox(activebox === boxId ? "one" : boxId)
+  }
+
   return (
     <section className="container">
-      <p></p>
+
+      <div style={{ color: '#616874' }}>
+        <i onClick={() => handleActibeBox("one")} className="bi bi-emoji-smile me-3"></i>
+        <i onClick={() => handleActibeBox("two")} className="bi bi-emoji-laughing me-3"></i>
+        <i onClick={() => handleActibeBox("seven")} className="bi bi-7-circle-fill"></i>
+      </div>
+
+      {activebox === "one" && <div className="mt-4"><p>item One</p></div>}
+
+      {activebox === "two" && <div className="mt-4"><p>item Two</p></div>}
+
+      {activebox === "seven" && <div className="mt-4"><p>item Three</p></div>}
     </section>
   )
 }
-
-
-{/* {
-                Object.keys(searchLs).map((city) => {
-                  return (
-                    <tr key={city}>
-                      <td>{city}</td>
-                      <td>{searchLs[city].temperature}</td>
-                      <td>{searchLs[city].humadity}</td>
-                      <td>{searchLs[city].possibilities}</td>
-                    </tr>
-                  )
-                })
-              } */}

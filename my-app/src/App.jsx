@@ -1,13 +1,13 @@
 import './App.css'
-import { MyBtnComp } from './components/myBtn'
-import GlobalState from './context/globalState'
+import { MyFunc } from './components/myBtn'
+// import BlogListState from './context/formContext'
 
 function App() {
 
   return (
-    <GlobalState>
-      <MyBtnComp />
-    </GlobalState>
+    // <BlogListState>
+      <MyFunc />
+    // </BlogListState>
   )
 }
 
