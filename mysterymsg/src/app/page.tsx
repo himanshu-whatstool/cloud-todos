@@ -1,8 +1,8 @@
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <section className="text-center">
-      <p>Naxt Code</p>
+    <section>
+      <p className="text-2xl text-center">Next Code</p>
     </section>
   )
 }
